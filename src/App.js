@@ -7,6 +7,7 @@ import { Button, Grid, TextField, Typography } from "@mui/material"
 const App = () => {
   const [city, setCity] = useState("")
   const [weatherData, setWeatherData] = useState(null)
+  console.log("weatherData: ", weatherData);
   const [loading, setLoading] = useState(false)
   const Apikey = "1635890035cbba097fd5c26c8ea672a1"
 
@@ -30,38 +31,33 @@ const App = () => {
 
   return (
     <>
-      <Grid container xs={12}>
-        <Grid item container xs={12} sx={{ margin: "1rem" }}>
-          <Grid item container xs={4} justifyContent={"center"}>
-            <Typography variant="h3">Weather in your City</Typography>
-          </Grid>
-          <Grid item container xs={4} justifyContent={"center"}>
-            <Grid item>
-              <TextField
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="Enter city name"
-                sx={{ marginRight: "1rem" }}
-              />
-            </Grid>
-            <Grid item alignSelf={"center"}>
-              <Button
-                variant="contained"
-                size="large"
-                onClick={() => setCity(city)}
-              >
-                Search
-              </Button>
-            </Grid>
-          </Grid>
+       <Grid container spacing={2} sx={{marginTop:'1rem'}} alignSelf={'center'}>
+        <Grid item xs={12} lg={4} >
+          <Typography variant="h3" align="center">
+            Weather in your City
+          </Typography>
         </Grid>
-        <Grid item container xs={12}>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            weatherData && <Weather data={weatherData} />
-          )}
+        <Grid item xs={12} sm={6} md={4} lg={2} alignSelf={'center'}>
+          <TextField
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="Enter city name"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={1} alignSelf={'center'}>
+          <Button
+            variant="contained"
+            size="large"
+            fullWidth
+            onClick={() => setCity(city)}
+          >
+            Search
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          {loading ? <p>Loading...</p> : weatherData && <Weather data={weatherData} />}
         </Grid>
       </Grid>
     </>
