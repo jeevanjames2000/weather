@@ -5,7 +5,7 @@ import Weather from "./components/Weather"
 import { Button, Grid, TextField, Typography } from "@mui/material"
 
 const App = () => {
-  const [city, setCity] = useState("")
+  const [city, setCity] = useState("Visakhapatnam")
   const [weatherData, setWeatherData] = useState(null)
   console.log("weatherData: ", weatherData);
   const [loading, setLoading] = useState(false)
@@ -16,7 +16,7 @@ const App = () => {
       setLoading(true)
       try {
         const response = await axios.get(
-          `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${Apikey}`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${Apikey}`
         )
         setWeatherData(response.data)
       } catch (error) {
