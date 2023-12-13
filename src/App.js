@@ -9,7 +9,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null)
   console.log("weatherData: ", weatherData);
   const [loading, setLoading] = useState(false)
-  const Apikey = "1635890035cbba097fd5c26c8ea672a1"
+  const Apikey = "7832f8edd9f4a3c6dd80944b6415ddab"
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <>
-       <Grid container spacing={2} sx={{marginTop:'1rem'}} alignSelf={'center'}>
+      <Grid container spacing={2} sx={{ marginTop: '1rem' }} alignSelf={'center'}>
         <Grid item xs={12} lg={4} >
           <Typography variant="h3" align="center">
             Weather in your City
