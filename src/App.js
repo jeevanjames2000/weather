@@ -9,7 +9,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null)
   console.log("weatherData: ", weatherData);
   const [loading, setLoading] = useState(false)
-  const Apikey = "7832f8edd9f4a3c6dd80944b6415ddab"
+  const Apikey = "c77c9f6e4a57967a0c857ca3d4a38b06"
 
   useEffect(() => {
     const fetchWeather = async () => {
